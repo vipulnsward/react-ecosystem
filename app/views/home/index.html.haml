@@ -1,2 +1,10 @@
-%span.home-message
-  This is home page.
+%header.clearfix
+  %h1
+    React Ecosystem
+    %span Companies that use React
+.main
+  %ul#og-grid.og-grid
+    - Company.order(:title).to_a.each do |company|
+      %li
+        = link_to company.site_link, data: {description: company.description, largesrc:  company.company_image.large.url, title: company.title} do
+          = image_tag company.company_image.thumb.url, alt: company.title

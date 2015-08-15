@@ -1,0 +1,11 @@
+.row{style: "padding-top: 10px;"}
+  = simple_form_for(@company, wrapper: :bootstrap3,
+                              html: { class: 'bootstrap-center-form-medium' }) do |f|
+    %h2 New company
+    .form-controls
+      = f.input :title, required: true, autofocus: true, input_html: { class: 'form-control' }, placeholder: 'Title', label: false
+      = f.input :site_link, required: true, input_html: { class: 'form-control' }, placeholder: 'Site Link', label: false
+      = f.input :description, required: true, input_html: { class: 'form-control' }, placeholder: 'Description', label: false
+      = f.input :company_image, as: :file, input_html: { class: 'form-control' }, label: false
+    .form-buttons
+      = f.button :submit, "Create", class: 'btn btn-primary'

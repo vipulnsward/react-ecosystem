@@ -1,4 +1,4 @@
-Wheel::Application.routes.draw do
+ReactEcosystem::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
@@ -43,12 +43,6 @@ Wheel::Application.routes.draw do
     get '/pages' => 'pages#index', as: :pages
   end
 
-  unauthenticated do
-    as :user do
-      root :to => 'devise/sessions#new', as: :unauthenticated_root
-    end
-  end
-
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       devise_scope :user do
@@ -59,6 +53,7 @@ Wheel::Application.routes.draw do
     end
   end
 
+  resources :companies
 
   root 'home#index'
 end

@@ -75,7 +75,7 @@ gem 'mail_interceptor', github: 'bigbinary/mail_interceptor', group: [:developme
 gem 'email_prefixer'
 
 # HTTP server for Rack applications for staging and production
-# See https://github.com/bigbinary/wheel/issues/43 for why unicorn is
+# See https://github.com/bigbinary/ReactEcosystem/issues/43 for why unicorn is
 # not used in development.
 gem 'unicorn', group: [:staging, :production]
 
@@ -106,3 +106,14 @@ end
 
 # Attach comments to Active Record queries
 gem 'marginalia'
+
+gem 'react-rails', github: 'reactjs/react-rails'
+gem 'modernizr-rails'
+
+
+# for CarrierWave to upload files to cloud storage like Amazon S3
+gem 'fog', require: false
+
+# for CarrierWave to perform image manipulations
+gem 'mini_magick'
+
