@@ -23,7 +23,7 @@ desc 'Deletes all records and populates sample data'
 task setup_sample_data: [:environment, :not_production] do
   delete_all_records_from_all_tables
 
-  create_user email: 'sam@example.com'
+  create_company
 
   puts 'sample data was added successfully'
 end
@@ -38,3 +38,11 @@ def create_user( options = {} )
   User.create! attributes
 end
 
+def create_company options = {}
+  company_attributes = { title: 'BigBinary',
+                      description: 'BigBinary',
+                      site_link: 'http://bigbinary.com',
+                      company_image: File.open(Rails.root.join 'app/assets/images/bigbinary.png')}
+
+  Company.create! company_attributes.merge(options)
+end
