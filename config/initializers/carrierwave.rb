@@ -37,6 +37,7 @@ case Rails.env
     if Rails.application.secrets.store_assets_in_file_system
       setup_for_storing_assets_in_file_system
     else
+      Rails.logger.info('Setting up s3')
       setup_for_storing_assets_in_s3
     end
 end
